@@ -3,8 +3,8 @@
 # ~~~~
 
 # Home page
-#GET     /                           controllers.Application.index
-GET     /helloUser                  controllers.PaidApplication.helloUser
+GET     /                           controllers.Application.index
+#GET     /helloUser                  controllers.PaidApplication.helloUser
 POST    /subscribe/new              controllers.Subscribe.newSubscribe
 GET     /subscribe/list             controllers.Subscribe.list
 
