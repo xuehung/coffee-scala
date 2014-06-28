@@ -1,4 +1,4 @@
-package controllers.models
+package models
 
 import org.squeryl.PrimitiveTypeMode._
 import org.squeryl.Table

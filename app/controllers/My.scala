@@ -1,13 +1,15 @@
 package controllers
 
 import play.api.mvc._
+import controllers.auth.Authentication
 
 
-object My extends Controller with Authentication with PremiumUsersOnly with BalanceCheck {
+//object My extends Controller with Authentication with PremiumUsersOnly with BalanceCheck {
+object My extends Controller with Authentication {
 
-  override def getRequiredBalance = 8
+  //override def getRequiredBalance = 8
 
-  def helloUser = AuthenticateMe {
+  def myConsole = AuthenticateMe {
     user => Ok(s"hello ${user.email}")
   }
 
