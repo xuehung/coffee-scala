@@ -1,0 +1,49 @@
+@(	title: String = "Default Title",
+	description: String = "Default Description"
+)(	headerType: String = "default",
+	scripts: List[String] = List(),
+	styles: List[String] = List()
+)(	content: Html
+)(	footerType: String = "default")
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>@title</title>
+		<meta name="description" content="@description" />
+		<!-- open graph -->
+		<meta property="fb:admins" content="100000125887100" />
+		<meta property="og:url" content="/" />
+	 	<meta property="og:site_name" content="Coffee Scala" />
+		<meta property="og:title" content="@title" />
+		<meta property="og:description" content="@description" />
+		<meta property="og:type" content="article" />
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"></script>
+		@for(script <- scripts) {
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/@script")"></script>
+		}
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        @for(style <- styles) {
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/" + style)">	
+        }
+		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+	</head>
+
+	<body class="coffeeScala">
+		<div id="bodyWrapper">
+			@headerType match {
+				case "default" => {
+					@header.default()
+				}
+			}
+			<div id="content">
+			@content
+			</div>
+			@footerType match {
+				case "default" => {
+					@footer.default()
+				}
+			}
+		</div>
+	</body>
+</html>

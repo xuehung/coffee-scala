@@ -1,0 +1,23 @@
+.text {
+	@include font-size($df-font-size);
+}
+
+.clear {
+	clear: both;
+}
+.hidden {
+	display: none;
+}
+
+.actionBtn {
+	@include font-size(14px);
+	display: inline-block;
+	padding: 6px 12px;
+	background: $bg-cta;
+	color: $white;
+	font-weight: bold;
+}
+.secondaryBtn {
+	@extend .actionBtn;
+	background: $bg-grey;
+}

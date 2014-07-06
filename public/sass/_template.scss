@@ -1,0 +1,158 @@
+/********** VARS **********/
+/*
+COLOURS
+*/
+$color-cta: #f27242;	/* CALL TO ACTION */
+
+$black: #000000;
+$black-opt-l: rgba(0, 0, 0, 0.1);
+$black-opt-m: rgba(0, 0, 0, 0.4);
+$black-opt-d: rgba(0, 0, 0, 0.7);
+
+$white: #ffffff;
+$white-opt-l: rgba(255, 255, 255, 0.2);
+$white-opt-m: rgba(255, 255, 255, 0.5);
+$white-opt-d: rgba(255, 255, 255, 0.8);
+
+$grey: #888888;
+$dark-grey: #212121;
+/*
+BG COLOUR
+*/
+$bg-black: #000000;
+$bg-black-opt-l: rgba(0, 0, 0, 0.1);
+$bg-black-opt-m: rgba(0, 0, 0, 0.4);
+$bg-black-opt-d: rgba(0, 0, 0, 0.7);
+
+$bg-white: #ffffff;
+$bg-white-opt-l: rgba(255, 255, 255, 0.2);
+$bg-white-opt-m: rgba(255, 255, 255, 0.5);
+$bg-white-opt-d: rgba(255, 255, 255, 0.8);
+
+$bg-grey: #b9b9af;
+$bg-dark-grey: #212121;
+
+$bg-cta: #f27242;
+/*
+DEFAULT
+*/
+$df-text-color: #434343;
+$df-link-color: $color-cta;
+
+$df-border-radius: 2px;
+$df-font-size: 14px;
+
+/********** MIXIN **********/
+@mixin border-radius($radius:$df-border-radius, $radius-tr:$radius, $radius-br:$radius, $radius-bl:$radius) {
+	-moz-border-radius: 	$radius $radius-tr $radius-br $radius-bl;
+	-webkit-border-radius: 	$radius $radius-tr $radius-br $radius-bl;
+	-khtml-border-radius:	$radius $radius-tr $radius-br $radius-bl;
+	-o-border-radius:		$radius $radius-tr $radius-br $radius-bl;
+	border-radius:			$radius $radius-tr $radius-br $radius-bl;
+}
+@mixin shadow($shadow1:0px 0px 4px $black-opt-l, $shadow2:false, $shadow3:false, $shadow4:false, $shadow5:false, $shadow6:false) {
+	$shadow: $shadow1;
+	@if $shadow6 != false {
+		$shadow: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5, $shadow6;
+	}
+	@elseif $shadow5 != false {
+		$shadow: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5;
+	}
+	@elseif $shadow4 != false {
+		$shadow: $shadow1, $shadow2, $shadow3, $shadow4;
+	}
+	@elseif $shadow3 != false {
+		$shadow: $shadow1, $shadow2, $shadow3;
+	}
+	@elseif $shadow2 != false {
+		$shadow: $shadow1, $shadow2;
+	}
+	-moz-box-shadow: 	$shadow;
+	-webkit-box-shadow: $shadow;
+	box-shadow: 		$shadow;
+}
+@mixin bg-gradient($color, $light-color:lighten($color, 5%), $dark-color:darken($color, 5%), $boundary:93%, $color2:false, $bound2:false) {
+	background: $color;
+	background: -o-linear-gradient($light-color, $dark-color);
+	@if $color2 == false {
+		background: -webkit-linear-gradient(top, $light-color 0%, $color $boundary, $dark-color 100%);
+		background: -moz-linear-gradient(center top , $light-color 0%, $color $boundary, $dark-color 100%);
+	}
+	@else {
+		@if $boundary > $bound2 {
+			background: -webkit-linear-gradient(top, $light-color 0%, $color2 $bound2, $color $boundary, $dark-color 100%);
+			background: -moz-linear-gradient(center top , $light-color 0%, $color2 $bound2, $color $boundary, $dark-color 100%);
+		}
+		@else {
+			background: -webkit-linear-gradient(top, $light-color 0%, $color $boundary, $color2 $bound2, $dark-color 100%);
+			background: -moz-linear-gradient(center top , $light-color 0%, $color $boundary, $color2 $bound2, $dark-color 100%);
+		}
+	}
+}
+@mixin opacity($value:0) {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value*100)";
+	filter: alpha(opacity=$value*100);
+	-moz-opacity: $value;
+	-khtml-opacity: $value;
+	opacity: $value;
+}
+@mixin font-size($size:$df-font-size, $line-height:$size+2) {
+	@if $size == 0 {
+		$line-height: 0px;
+	}
+	font-size: $size;
+	line-height: $line-height;
+}
+@mixin arrow($size:10px, $color:$white, $direction:down, $bg:transparent) {
+	width: 0px;
+	height: 0px;
+	border: {
+		style: solid;
+		width: $size;
+	}
+	@if $direction == up {
+		border-color: $bg $bg $color $bg;
+	}
+	@elseif $direction == down {
+		border-color: $color $bg $bg $bg;
+	}
+	@elseif $direction == left {
+		border-color: $bg $color $bg $bg;
+	}
+	@elseif $direction == right {
+		border-color: $bg $bg $bg $color;
+	}
+}
+@mixin text-overflow($width:auto, $type:ellipsis) {
+	width: $width;
+    overflow: hidden;
+	white-space: nowrap;
+    text-overflow: $type;
+    -o-text-overflow: $type;
+}
+@mixin transform($content) {
+	-webkit-transform: $content;
+	-moz-transform: $content;
+	-ms-transform: $content;
+	-o-transform: $content;
+	transform: $content;
+}
+@mixin transition($content) {
+	-webkit-transition: $content;
+	-moz-transition: $content;
+	-o-transition: $content;
+	transition: $content;
+}
+@mixin rotate($deg) {
+	@include transform( rotate($deg) );
+}
+
+/************** TEMPLATES **************/
+@mixin shadow_tpl($type:null) {
+	@if $type == null {
+		@include shadow(0px 0px 1px #CCCCCC);
+	}
+	@elseif $type == glowless {
+		@include shadow(0 2px 4px -4px rgba(0, 0, 0, 0.4), 0 -2px 4px -4px rgba(0, 0, 0, 0.4), -2px 0 4px -4px rgba(0, 0, 0, 0.4), 2px 0 4px -4px rgba(0, 0, 0, 0.4));
+	}
+}
