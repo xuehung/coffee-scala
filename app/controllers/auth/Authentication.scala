@@ -1,15 +1,21 @@
 package controllers.auth
 
-import play.api.mvc.{Action, RequestHeader, Result, Controller}
+import play.api.mvc._
+import play.api.mvc.{Action, RequestHeader,Result, Controller}
 //import controllers.auth.UserEntity
 import models.User
+
+
+/*
+ * ref: https://www.tunnelbear.com/development/authenticating-users-in-the-play-framework/
+ */
 
 
 trait Authentication {
   self:Controller =>
   var accessConditions: List[Conditions.Condition] = List.empty
 
-  def AuthenticateMe(f: UserEntity => Result) = Action { implicit request =>
+  def AuthenticateMe(f: (Request[AnyContent], UserEntity) => Result) = Action { implicit request =>
     val user = AuthUtils.parseUserFromRequest
 
     if(user.isEmpty)
@@ -18,7 +24,7 @@ trait Authentication {
       accessConditions.map(condition => condition(user.get)).collectFirst[String]{case Left(error) => error}
       match {
         case Some(error) => Forbidden(s"Conditions not met: $error")
-        case _ => f(user.get)
+        case _ => f(request, user.get)
       }
     }
   }

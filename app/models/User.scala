@@ -26,6 +26,13 @@ case class User(email:String, password:String, isPremium:Boolean, balance:Int) {
 */
 import org.squeryl.KeyedEntity
 
+trait transactionInfo {
+  var cardNum: String
+  var cvc: String
+  var expMon: String
+  var expYear: String
+}
+
 case class User(
   id: Long,
   email: String,

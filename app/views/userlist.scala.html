@@ -1,0 +1,11 @@
+@(users: List[User])
+
+
+@common.main("訂購名單")("default", List(), List("landing.css")){
+<ul>
+  @users.filter(u => u.balance < 10).map { u =>
+<li>@u.email</li>
+}
+</ul>
+
+}()

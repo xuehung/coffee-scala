@@ -2,14 +2,21 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
+# Home page & static pages
 GET     /                           controllers.Application.index
-#GET     /helloUser                  controllers.PaidApplication.helloUser
-POST    /subscribe/new              controllers.Subscribe.newSubscribe
-GET     /subscribe/list             controllers.Subscribe.list
+GET     /login                      controllers.Application.login
 
-POST    /login                      controllers.auth.Login.login
+# API
+POST    /api/register               controllers.auth.AuthApi.register
+POST    /api/login                  controllers.auth.AuthApi.login
+POST    /api/subscribe/new          controllers.SubscribeApi.newSub
+
+
+#GET     /helloUser                  controllers.PaidApplication.helloUser
+#GET     /subscribe/list             controllers.Subscribe.list
+
 GET     /my                         controllers.My.myConsole
+GET     /admin/list                 controllers.admin.Admin.list
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

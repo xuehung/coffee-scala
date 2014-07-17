@@ -4,6 +4,7 @@ import play.api.mvc._
 import play.api.data.Form
 import play.api.data.Forms.{mapping, longNumber, nonEmptyText}
 import play.api.i18n.Messages
+import controllers.auth.Authentication
 
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
@@ -13,19 +14,21 @@ import com.stripe.model.Charge;
 import models.User
 
 
-object Subscribe extends Controller {
+object SubscribeApi extends Controller with Authentication {
 
-  def newSubscribe = Action { request =>
-    val body: AnyContent = request.body
-    val formMapOption: Option[Map[String, Seq[String]]] = body.asFormUrlEncoded
+  def newSub = AuthenticateMe { (request, user) =>
+    val apiParams = new ApiParams(request)
+    val r = new CoffeeResponse()
 
     try {
-      if(formMapOption.isEmpty) {
-        BadRequest("A form is expected")
-      }
-      val formMap = formMapOption.get
-      val email = formMap("email")(0)
-      //val address = formMap("address")(0)
+      val country = apiParams.get("country")
+      val address = apiParams.get("address")
+      val size = apiParams.get("size")
+      // credit card
+      val cardNum = apiParams.get("card_num")
+      val cardExpYear = apiParams.get("card_exp_year")
+      val cardExpMonth = apiParams.get("card_exp_month")
+      val cardCvc = apiParams.get("card_cvc")
 
       /*
       Stripe.apiKey = "sk_test_BQokikJOvBiI2HlWgH4olfQ2";
@@ -47,15 +50,7 @@ object Subscribe extends Controller {
 
       Charge.create(chargeParams);
       */
-      val user = User.find(email)
-      if(user.isEmpty) {
-        val newUser = User(0, email, "password", "Mike", true, 0)
-        User.create(newUser)
-        Ok("ok")
-      } else {
-        BadRequest(email + " already exists")
-      }
-
+      Ok(r.success)
     } catch {
       case e: Exception => BadRequest(e.toString)
     }

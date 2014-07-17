@@ -9,8 +9,8 @@ object My extends Controller with Authentication {
 
   //override def getRequiredBalance = 8
 
-  def myConsole = AuthenticateMe {
-    user => Ok(s"hello ${user.email}")
+  def myConsole = AuthenticateMe { (request, user) =>
+    Ok(s"hello ${user.email}")
   }
 
 }
