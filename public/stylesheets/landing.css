@@ -11,27 +11,23 @@ DEFAULT
 */
 /********** MIXIN **********/
 /************** TEMPLATES **************/
+/* line 3, ../sass/landing.scss */
 #section-landing {
   height: 500px;
   background-image: url("/assets/images/bg/coffee3.jpg");
-  text-align: center; }
-  #section-landing .promotion {
-    -moz-border-radius: 2px 2px 2px 2px;
-    -webkit-border-radius: 2px 2px 2px 2px;
-    -khtml-border-radius: 2px 2px 2px 2px;
-    -o-border-radius: 2px 2px 2px 2px;
-    border-radius: 2px 2px 2px 2px;
-    display: inline-block;
-    margin-top: 100px;
-    padding: 20px;
-    width: 400px;
-    height: 300px;
-    background: rgba(0, 0, 0, 0.4);
-    color: white; }
-    #section-landing .promotion .caption {
-      font-size: 14px;
-      line-height: 16px; }
-    #section-landing .promotion .btns {
-      margin-top: 10px; }
-      #section-landing .promotion .btns .btn + .btn {
-        margin-left: 20px; }
+  text-align: center;
+}
+/* line 7, ../sass/landing.scss */
+#section-landing .promotion {
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  -khtml-border-radius: 2px 2px 2px 2px;
+  -o-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  display: inline-block;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}

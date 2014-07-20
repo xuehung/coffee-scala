@@ -7,22 +7,27 @@
 }
 
 #header {
-	margin-top: 10px;
+	padding-top: 10px;
 	margin-bottom: 20px;
 	width: 100%;
 	height: 100px;
 	.container {
+		$_logo_w: 200px;
+		width: 100%;
+		min-width: $content-width;
 		text-align: center;
 		#logo {
 			display: inline-block;
 			vertical-align: bottom;
-			margin: 0px 50px;
 			text-align: center;
+			a {
+			}
 		}
 		.categBar {
 			display: inline-block;
 			vertical-align: bottom;
 			padding-bottom: 5px;
+			width: ($content-width - $_logo_w) / 2;
 			.categ {
 				@include font-size(14px);
 				padding: 2px 10px;
@@ -32,14 +37,53 @@
 					margin-left: 20px;
 				}
 			}
+			&.left {
+				text-align: left;
+			}
+			&.right {
+				text-align: right;
+			}
 		}
 	}
 }
 
 #content {
 	width: 100%;
+	background: $bg-dark-white;
 	.section {
+		padding: 60px 20px;
 		width: 100%;
+		.block {
+			.icon {
+			}
+			.caption {
+				@include font-size(18px);
+			}
+			.desc {
+				@include font-size(14px);
+			}
+			.btns {
+				margin-top: 10px;
+				.btn {
+					& + .btn {
+						margin-left: 20px;
+					}
+				}
+			}
+			&.form {
+				display: inline-block;
+				background: $bg-white-opt-d;
+				.formContent {
+					display: block;
+					margin: 15px;
+					padding: 20px;
+					border: 1px solid $black-opt-m;
+				}
+			}
+		}
+		&.centering {
+			text-align: center;
+		}
 	}
 }
 
