@@ -1,0 +1,45 @@
+@(products: List[Product])
+
+
+@common.main("產品清單")("admin", List("admin.js"), List()){
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th width="50">ID</th>
+        <th width="150">Chinese Name</th>
+        <th width="150">English Name</th>
+        <th width="150">Altitude</th>
+        <th width="150">Origin</th>
+      </tr>
+    </thead>
+    <tbody>
+      @products.map { p =>
+      <tr>
+        <td>@p.id</td>
+        <td>@p.name_ch</td>
+        <td>@p.name_eng</td>
+        <td>@p.altitude</td>
+        <td>@p.origin</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<button href="#" data-reveal-id="myModal">Click Here for Adding a Product</button>
+
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>新增產品<h2>
+  <h3>中文名稱</h3>
+  <input type="text" id="name-ch" />
+  <h3>英文名稱</h3>
+  <input type="text" id="name-eng" />
+  <h3>海拔</h3>
+  <input type="text" id="altitude" />
+  <h3>產地</h3>
+  <input type="text" id="origin" />
+  <button id="add-product-btn"> Add </button>
+</div>
+
+}()

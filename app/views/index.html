@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <title>Billie GreenHouse</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/foundation.min.css" />
+    <script src="js/vendor/modernizr.js"></script>
+	<style type="text/css">
+
+		.section {
+			height: 530px;
+		}
+		#product {
+			width: 100%;
+			position:relative;
+		}
+
+		.product-item-img {
+			width: 80px;
+			margin: 5px 15px;
+		}
+
+		.product-description-div {
+			position:absolute;
+			top: 100px;
+			right:0;
+			width:600px;
+			height: 350px;
+			background: url(img/bg_trans.png);
+			z-index: 5;
+			padding: 20px;
+		}
+		.product-description-div h2 {
+			color: #ccc;
+		}
+		.product-description-text {
+			color: #fff;
+			text-align: justify;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-size: 14px;
+			line-height: 1.428571429;
+			height: 200px;
+		}
+
+		.copyright {
+			font-family: Helvetica,Arial,sans-serif;
+			line-height: 25px;
+			font-size: 12px;
+			color: #bdbdbd;
+			padding: 25px 0;
+		}
+
+		.copyright .columns {
+			padding: 10px 0 5px 0;
+		}
+
+		img.desaturate {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
+		}
+
+		#buy-btn {
+			font-size: 1.0rem;
+		}
+
+		#product {
+		  position:relative;
+		  width:100%;
+		  margin:0 auto 10px;
+		}
+		#product div.product-img {
+		  position:absolute;
+		  left:0;
+		  -webkit-transition: opacity 1s ease-in-out;
+		  -moz-transition: opacity 1s ease-in-out;
+		  -o-transition: opacity 1s ease-in-out;
+		  transition: opacity 1s ease-in-out;
+		  opacity:0;
+		  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		  filter: alpha(opacity=0);
+		  background-size: cover;
+		  width: 100%;
+		  height: 500px;
+		  background-size: cover;
+		}
+
+		#product div.opaque {
+		  opacity:1;
+		  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		  filter: alpha(opacity=1);
+		}
+
+		#cart-div {
+		    width: 450px;
+		    min-height: 80px;
+		    position: fixed;
+		    top: 15px;
+		    right: 15px;
+		    padding: 10px 40px 0 10px;
+		    background-color: #ffffff;
+		    z-index: 999999;
+		    border:0.094em solid;
+		    border-radius:5px;
+		    -webkit-border-radius: 5px;
+		    -moz-border-radius: 5px;
+		    border-color: #ddd;
+		    display: none;
+		    -webkit-box-shadow: 9px 11px 16px 4px rgba(46,46,46,0.77);
+		    -moz-box-shadow: 9px 11px 16px 4px rgba(46,46,46,0.77);
+		    box-shadow: 9px 11px 16px 4px rgba(46,46,46,0.77);
+		}
+		#cart-close-btn {
+		    height: 18px;
+		    width: 18px;
+		    background-image: url(img/close.gif);
+		    position: absolute;
+		    right: 10px;
+		}
+
+		.about-img {
+		    border-radius: 150px;
+		    -webkit-border-radius: 150px;
+		    -moz-border-radius: 150px;
+		    height: 230px;
+		    width: 230px;
+		    margin: 15px;
+		}
+
+
+	</style>
+  </head>
+  <body>
+
+    <div data-magellan-expedition="fixed" data-options="destination_threshold:65;throttle_delay:0;">
+      <dl class="sub-nav">
+        <dd data-magellan-arrival="product"><a href="#product">精選生豆</a></dd>
+        <dd data-magellan-arrival="about-us"><a href="#about-us">關於碧利</a></dd>
+        <dd data-magellan-arrival="about-farm"><a href="#about-farm">產地故事</a></dd>
+        <dd data-magellan-arrival="contact"><a href="#contact">聯絡我們</a></dd>
+      </dl>
+    </div>
+
+    <a name="product"></a>
+    <h3 data-magellan-destination="product"></h3>
+    <div class="section">
+      <div id="product">
+        <div class="product-img opaque" style="background-image: url(img/a.png)"></div>
+        <div class="product-img" style="background-image: url(img/b.png)"></div>
+
+        <div class="product-description-div">
+          <h2 id="product-name">Ethiopia Yirga Cheffe Gedeo</h2>
+          <div class="product-description-text">
+            <span>Here we have our last of the ECX coffees we brought in this year. And we definitely saved one of the best for last. We don't usually pick much coffee up that's handled through the Commodity Exchange (this year we picked up 3), but the quality of this particular lot is so high that, in my opinion, it would have been foolish to turn it away. We listed a lot earlier this season as "Gedeo" too, but this is not the same coffee</span>
+          </div>
+          <div class="row">
+            <div class="small-3 small-offset-6 columns">
+              <select id="product-amount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="small-3 columns">
+              <button id="buy-btn" class="button radius tiny success">
+                <strong>購買</strong>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img class="product-item-img img-circle active-item-img" src="img/green_bean.png" />
+      <img class="product-item-img img-circle desaturate" src="img/green_bean.png" />
+      <img class="product-item-img img-circle desaturate" src="img/green_bean.png" />
+    </div>
+
+    <hr>
+
+    <a name="about-us"></a>
+    <h3 data-magellan-destination="about-us"></h3>
+    <div class="section">
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <h2>碧利咖啡</h2>
+          <h4 class="subheader">
+            碧利咖啡致力於將優質、新鮮、溫暖的咖啡生豆直接重產地送到您的手中。我們每年親自前往產地莊園嚴選高品質的生豆，讓您能夠體會那芬芳香氣與最貼近大自然的味道，幫助您喝到好咖啡一直是碧利咖啡所追求的目標！
+          </h4>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center">
+        <div class="small-4 columns">
+          <h3>親訪產地</h3>
+          <img src="img/about_1.png" class="about-img">
+          <p>碧利咖啡每年造訪數十個咖啡莊園，與國外知名烘焙商一同採購，因此交與您的咖啡豆的品質為世界頂尖。</p>
+        </div>
+        <div class="small-4 columns">
+          <h3>直營莊園</h3>
+          <img src="img/about_2.png" class="about-img">
+          <p>除了造訪當地莊園之外，碧利咖啡亦擁有專屬直營莊園，不僅能確保咖啡豆的高品質，更提供獨特風味。</p>
+        </div>
+        <div class="small-4 columns">
+          <h3>批量進貨</h3>
+          <img src="img/about_3.png" class="about-img">
+          <p>碧利咖啡每次採購數公噸咖啡豆，有些更是直接包下莊園所有產量，故能夠提供您最實惠的價格。</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <a name="about-farm"></a>
+    <h3 data-magellan-destination="about-farm"></h3>
+    <div class="section">
+      <br><br><br>
+      <div class="row">
+        <div class="small-8 columns">
+          <img src="img/farm.jpg">
+        </div>
+        <div class="small-4 columns">
+          <h2>碧利咖啡</h2>
+          <h4 class="subheader">
+            碧利咖啡致力於將優質、新鮮、溫暖的咖啡生豆直接重產地送到您的手中。我們每年親自前往產地莊園嚴選高品質的生豆，讓您能夠體會那芬芳香氣與最貼近大自然的味道，幫助您喝到好咖啡一直是碧利咖啡所追求的目標！
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <a name="contact"></a>
+	<h3 data-magellan-destination="contact"></h3>
+	<div class="section">
+		<br><br><br><br>
+		<div class="row">
+			<div class="small-4 columns">
+				<div class="row">
+					<div class="small-12 columns">
+					  <label>E-mail
+						<input type="email" placeholder="Your E-mail" />
+					  </label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+					  <label>Subject
+						<input type="text" placeholder="Subject" />
+					  </label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+					  <label>Message
+						<textarea placeholder="small-12.columns" style="height: 120px"></textarea>
+					  </label>
+					</div>
+				</div>
+				<button class="small radius">Send</button>
+			</div>
+			<div class="small-8 columns">
+				<img src="img/bean-contact.png" />
+			</div>
+		</div>
+		<br>
+    <div class="copyright" style="height:160px;background-color: #262626;">
+      <div class="row" data-equalizer>
+        <div class="small-7 columns" data-equalizer-watch>
+          <span>E-mail: info@billiecafe.com</span>
+          <br>
+          <span>Phone: 02-24769869</span>
+          <br>
+          <span>Address: 7F, No.2, Alley 315, Sec.2, Chung Shan Road, Chung Ho City, Taipei City 235, Taiwan</span>
+        </div>
+        <div class="small-4 columns" data-equalizer-watch style="border-left: 1px dotted #6b6b6b; padding-left: 20px; margin-left: 10px;">
+          <br><br>
+          <span class="right" style="color: #bdbdbd;">© Copyright 2014 by BillieCafe. All Rights Reserved. </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/jquery.cookie.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="js/bean.js"></script>
+</body>
+</html>

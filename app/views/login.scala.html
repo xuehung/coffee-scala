@@ -1,6 +1,9 @@
 @()
 
-@common.main("登入")("default", List(), List("landing.css")){
-  <h3>Login Page</h3>
+@common.main("登入")("default", List("login.js"), List("landing.css")){
+<h3>Login Page</h3>
+<input type="text" id="login-email" />
+<input type="password" id="login-password" />
+<button id="login-btn">Login</button>
 
 }()

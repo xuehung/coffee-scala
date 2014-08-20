@@ -1,0 +1,17 @@
+<div id="header">
+	<div class="container">
+		<div id="categBar" class="categBar">
+			<a class="categ" href="/">目錄A</a>
+			<a class="categ" href="/">目錄B</a>
+			<a class="categ" href="/">目錄C</a>
+		</div>
+		<div id="logo">
+			<img src="@routes.Assets.at("images/logos/200_100.jpg")" />
+		</div>
+    <div id="memberBar" class="categBar">
+			<a class="categ as-nonlogin" href="/login">登入</a>
+      <a class="categ as-nonlogin" href="/">註冊</a>
+      <a class="categ as-login" id="logout-btn" href="javascript: void(0);">登出</a>
+		</div>
+	</div>
+</div>

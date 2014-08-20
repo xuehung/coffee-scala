@@ -5,18 +5,30 @@
 # Home page & static pages
 GET     /                           controllers.Application.index
 GET     /login                      controllers.Application.login
+GET     /register                   controllers.Application.register
+#GET     /subscribe                  controllers.Application.subscribe
+
+# Administration
+GET     /admin/user                 controllers.admin.Admin.userList
+GET     /admin/country              controllers.admin.Admin.countryList
+GET     /admin/product              controllers.admin.Admin.productList
+GET     /admin/schedule             controllers.admin.Admin.scheduleList
+GET     /admin                      controllers.admin.Admin.userList
 
 # API
 POST    /api/register               controllers.auth.AuthApi.register
 POST    /api/login                  controllers.auth.AuthApi.login
-POST    /api/subscribe/new          controllers.SubscribeApi.newSub
+POST    /api/subscribe/new          controllers.subscribe.SubscribeApi.newSubscribe
+POST    /api/product/new            controllers.admin.AdminApi.addProduct
+POST    /api/schedule/new           controllers.admin.AdminApi.addSchedule
+GET     /api/product/list           controllers.admin.AdminApi.showProduct
+
 
 
 #GET     /helloUser                  controllers.PaidApplication.helloUser
 #GET     /subscribe/list             controllers.Subscribe.list
 
 GET     /my                         controllers.My.myConsole
-GET     /admin/list                 controllers.admin.Admin.list
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

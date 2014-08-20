@@ -18,26 +18,46 @@
 		<meta property="og:title" content="@title" />
 		<meta property="og:description" content="@description" />
 		<meta property="og:type" content="article" />
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/vendor/jquery-1.9.0.min.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/vendor/jquery-ui.min.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/vendor/jquery.cookie.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts//constants.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/utilities.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/main.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/vendor/modernizr.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/foundation.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/foundation/foundation.magellan.js")"></script>
 		@for(script <- scripts) {
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/@script")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/" + script)"></script>
 		}
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        @for(style <- styles) {
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/" + style)">	
-        }
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+  	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/foundation.min.css")" />
+    @for(style <- styles) {
+      <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/" + style)">
+    }
 		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 	</head>
 
 	<body class="coffeeScala">
 		<div id="bodyWrapper">
 			@headerType match {
-				case "default" => {
-					@header.default()
-				}
+      case "default" => {@header.default()}
+      case "admin" => {@header.admin()}
+      case _ => {@header.default()}
+
 			}
 			<div id="content">
-			@content
+			@headerType match {
+        case "default" => {@content}
+        case "admin" => {
+        <div style="padding: 50px 200px;">
+          @content
+        </div>
+        }
+        case _ => {@content}
+			}
 			</div>
 			@footerType match {
 				case "default" => {

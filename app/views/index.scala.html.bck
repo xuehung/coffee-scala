@@ -1,0 +1,16 @@
+@(message: String)
+
+@common.main("Welcome to Play")("default", List(), List("landing.css")){
+<div id="section-landing" class="section section-bgBased">
+	<div class="block promotion">
+		<div class="icon"></div>
+		<div class="caption">@message</div>
+		<div class="desc"></div>
+		<div class="btns">
+			<div class="btn secondaryBtn readmore">更多介紹</div>
+			<div class="btn actionBtn subscribe">立即訂閱</div>
+		</div>
+	</div>
+</div>
+
+}()

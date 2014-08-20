@@ -1,0 +1,11 @@
+@(countries: List[Country])
+
+
+@common.main("運送地")("admin", List("admin.js"), List()){
+<div>
+  @countries.map { c =>
+    <p>@c.countryCode</p>
+  }
+</div>
+
+}()

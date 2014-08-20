@@ -1,0 +1,42 @@
+@(schedules: List[(Schedule,Product)])
+
+
+@common.main("預定送貨排程")("admin", List("admin.js"), List()){
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th width="50">ID</th>
+        <th width="200">Deliver Date</th>
+        <th width="200">Product</th>
+        <th width="100">Done?</th>
+      </tr>
+    </thead>
+    <tbody>
+      @schedules.map { s =>
+      <tr>
+        <td>@s._1.id</td>
+        <td>@s._1.deliver_date</td>
+        <td>@s._2.name_ch</td>
+        <td>@s._1.done</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<button href="#" data-reveal-id="myModal">Click Here for Adding a Schedule</button>
+
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>新增產品<h2>
+  <h3>日期</h3>
+  <input type="text" id="datepicker" />
+  <br>
+  <h3>產品</h3>
+  <select id="product-id" />
+  </select>
+  <button id="add-schedule-btn"> Add </button>
+</div>
+
+}()

@@ -20,18 +20,18 @@ object AuthApi extends Controller {
       val user = User.find(email)
       val ip = request.remoteAddress
 
+      r.put("email", email)
       if(user.isEmpty || !user.get.checkPassword(password)) {
-        BadRequest("Login failed")
+        Ok(r.fail("Login failed"))
       } else {
         val token = TokenPool.add(user.get, ip)
-        r.put("token", token).put("email", email)
+        r.put("token", token)
         Ok(r.success())
       }
     } catch {
       case e: Exception => BadRequest(e.toString)
     }
   }
-
 
   def register = Action { request =>
     val apiParams = new ApiParams(request)

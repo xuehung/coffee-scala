@@ -10,6 +10,16 @@ class CoffeeResponse {
     return this
   }
 
+  def put(key: String, value: JsObject): CoffeeResponse = {
+    response ++= Json.obj(key -> value)
+    return this
+  }
+
+  def put(key: String, value: JsArray): CoffeeResponse = {
+    response ++= Json.obj(key -> value)
+    return this
+  }
+
   def success() = {
     response ++= Json.obj("code" -> 200)
     response.toString()

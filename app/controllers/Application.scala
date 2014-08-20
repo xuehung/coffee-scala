@@ -17,6 +17,15 @@ object Application extends Controller {
     Ok(views.html.login())
   }
 
+  def register = Action {
+    Ok(views.html.register())
+  }
+  /*
+  def subscribe = Action {
+    Ok(views.html.subscribe())
+  }
+  */
+
 }
 
 

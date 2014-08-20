@@ -1,0 +1,11 @@
+@(users: List[User])
+
+
+@common.main("使用者名單")("admin", List(), List("")){
+<ul>
+  @users.filter(u => u.balance < 10).map { u =>
+<li>@u.email</li>
+}
+</ul>
+
+}()

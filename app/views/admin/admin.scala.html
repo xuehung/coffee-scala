@@ -1,0 +1,17 @@
+@( title: String )( content: Html )
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>@title</title>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="/admin/user">User</a>
+      <a href="/admin/product">Product</a>
+      <a href="/admin/schedule">Schedule</a>
+      <a href="/admin/country">Country</a>
+    </div>
+    @content
+  </body>
+</html>
