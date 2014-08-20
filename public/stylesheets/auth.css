@@ -1,0 +1,28 @@
+/********** VARS **********/
+/*
+COLOURS
+*/
+/* CALL TO ACTION */
+/*
+BG COLOUR
+*/
+/*
+DEFAULT
+*/
+/********** MIXIN **********/
+/************** TEMPLATES **************/
+/* line 3, ../sass/auth.scss */
+#section-login {
+  min-height: 600px;
+  background-image: url("/assets/images/bg/coffee2.jpg");
+}
+/* line 6, ../sass/auth.scss */
+#section-login .form {
+  width: 500px;
+}
+/* line 9, ../sass/auth.scss */
+#section-login .form .seperator.line {
+  margin: 20px auto;
+  width: 20%;
+  background: #888888;
+}

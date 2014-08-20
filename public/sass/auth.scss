@@ -1,0 +1,16 @@
+@import "template";
+
+#section-login {
+	min-height: 600px;
+	background-image: url('/assets/images/bg/coffee2.jpg');
+	.form {
+		width: 500px;
+		.seperator {
+			&.line {
+				margin: 20px auto;
+				width: 20%;
+				background: $grey;
+			}
+		}
+	}
+}

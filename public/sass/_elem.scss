@@ -16,8 +16,21 @@
 	background: $bg-cta;
 	color: $white;
 	font-weight: bold;
+	cursor: pointer;
 }
 .secondaryBtn {
 	@extend .actionBtn;
 	background: $bg-grey;
+}
+
+.seperator {
+	display: inline-block;
+	margin: 0px 4px;
+	&.line {
+		display: block;
+		margin: 10px 0px;
+		width: 100%;
+		height: 1px;
+		background: $bg-white;
+	}
 }

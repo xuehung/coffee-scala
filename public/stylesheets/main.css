@@ -12,6 +12,7 @@ DEFAULT
 /********** MIXIN **********/
 /************** TEMPLATES **************/
 /********** RESET **********/
+/* line 10, ../sass/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,33 +28,49 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+}
 
+/* line 19, ../sass/_reset.scss */
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
+/* line 23, ../sass/_reset.scss */
 a {
   color: #f27242;
   text-decoration: none;
-  cursor: pointer; }
-  a:hover {
-    text-decoration: none; }
+  cursor: pointer;
+}
+/* line 27, ../sass/_reset.scss */
+a:hover {
+  text-decoration: none;
+}
 
+/* line 31, ../sass/_reset.scss */
 ul, li {
-  list-style-type: none; }
+  list-style-type: none;
+}
 
+/* line 34, ../sass/_reset.scss */
 br.clearfix {
-  clear: both; }
+  clear: both;
+}
 
+/* line 37, ../sass/_reset.scss */
 strong {
-  color: #212121; }
+  color: #212121;
+}
 
+/* line 40, ../sass/_reset.scss */
 html {
   width: 100%;
   height: 100%;
-  background: white; }
+  background: white;
+}
 
+/* line 45, ../sass/_reset.scss */
 body {
   font-size: 0;
   line-height: 0px;
@@ -62,21 +79,31 @@ body {
   color: #434343;
   font-family: "Hiragino Sans GB", "Microsoft JhengHei", Helvetica, Georgia, "Times New Roman", Times, serif;
   text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
+/* line 54, ../sass/_reset.scss */
 *, *:before, *:after {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
+/* line 1, ../sass/_elem.scss */
 .text {
   font-size: 14px;
-  line-height: 16px; }
+  line-height: 16px;
+}
 
+/* line 5, ../sass/_elem.scss */
 .clear {
-  clear: both; }
+  clear: both;
+}
 
+/* line 8, ../sass/_elem.scss */
 .hidden {
-  display: none; }
+  display: none;
+}
 
+/* line 12, ../sass/_elem.scss */
 .actionBtn, .secondaryBtn {
   font-size: 14px;
   line-height: 16px;
@@ -84,50 +111,135 @@ body {
   padding: 6px 12px;
   background: #f27242;
   color: white;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer;
+}
 
+/* line 21, ../sass/_elem.scss */
 .secondaryBtn {
-  background: #b9b9af; }
+  background: #b9b9af;
+}
 
+/* line 26, ../sass/_elem.scss */
+.seperator {
+  display: inline-block;
+  margin: 0px 4px;
+}
+/* line 29, ../sass/_elem.scss */
+.seperator.line {
+  display: block;
+  margin: 10px 0px;
+  width: 100%;
+  height: 1px;
+  background: white;
+}
+
+/* line 5, ../sass/main.scss */
 #bodyWrapper {
-  width: 100%; }
+  width: 100%;
+}
 
+/* line 9, ../sass/main.scss */
 #header {
-  margin-top: 10px;
+  padding-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  height: 100px; }
-  #header .container {
-    text-align: center; }
-    #header .container #logo {
-      display: inline-block;
-      vertical-align: bottom;
-      margin: 0px 50px;
-      text-align: center; }
-    #header .container .categBar {
-      display: inline-block;
-      vertical-align: bottom;
-      padding-bottom: 5px; }
-      #header .container .categBar .categ {
-        font-size: 14px;
-        line-height: 16px;
-        padding: 2px 10px;
-        display: inline-block;
-        color: #888888; }
-        #header .container .categBar .categ + .categ {
-          margin-left: 20px; }
+  height: 100px;
+}
+/* line 14, ../sass/main.scss */
+#header .container {
+  width: 100%;
+  min-width: 940px;
+  text-align: center;
+}
+/* line 19, ../sass/main.scss */
+#header .container #logo {
+  display: inline-block;
+  vertical-align: bottom;
+  text-align: center;
+}
+/* line 26, ../sass/main.scss */
+#header .container .categBar {
+  display: inline-block;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  width: 370px;
+}
+/* line 31, ../sass/main.scss */
+#header .container .categBar .categ {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 2px 10px;
+  display: inline-block;
+  color: #888888;
+}
+/* line 36, ../sass/main.scss */
+#header .container .categBar .categ + .categ {
+  margin-left: 20px;
+}
+/* line 40, ../sass/main.scss */
+#header .container .categBar.left {
+  text-align: left;
+}
+/* line 43, ../sass/main.scss */
+#header .container .categBar.right {
+  text-align: right;
+}
 
+/* line 50, ../sass/main.scss */
 #content {
-  width: 100%; }
-  #content .section {
-    width: 100%; }
+  width: 100%;
+  background: #f9f7f5;
+}
+/* line 53, ../sass/main.scss */
+#content .section {
+  padding: 60px 20px;
+  width: 100%;
+}
+/* line 59, ../sass/main.scss */
+#content .section .block .caption {
+  font-size: 18px;
+  line-height: 20px;
+}
+/* line 62, ../sass/main.scss */
+#content .section .block .desc {
+  font-size: 14px;
+  line-height: 16px;
+}
+/* line 65, ../sass/main.scss */
+#content .section .block .btns {
+  margin-top: 10px;
+}
+/* line 68, ../sass/main.scss */
+#content .section .block .btns .btn + .btn {
+  margin-left: 20px;
+}
+/* line 73, ../sass/main.scss */
+#content .section .block.form {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.7);
+}
+/* line 76, ../sass/main.scss */
+#content .section .block.form .formContent {
+  display: block;
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+/* line 84, ../sass/main.scss */
+#content .section.centering {
+  text-align: center;
+}
 
+/* line 90, ../sass/main.scss */
 #footer {
   padding: 10px 0px;
   background: #212121;
   color: white;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 97, ../sass/main.scss */
 .section-bgBased {
   background-size: cover;
   background-position: center bottom;
